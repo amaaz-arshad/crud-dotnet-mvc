@@ -1,0 +1,29 @@
+﻿@model EmployeeCRUD.Models.Department
+
+<h2>Department Details</h2>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+           Department
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept_name)
+        </dd>
+
+        <dt>
+            Dept Manager
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.employee_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditDepartment", new { id = Model.dept_id }, new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Go back", "Index", null, new { @class = "btn btn-default" })
+</p>

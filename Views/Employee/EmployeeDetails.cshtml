@@ -1,0 +1,69 @@
+﻿@model EmployeeCRUD.Models.Employee
+
+<h3>Employee Details</h3>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Employee Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee_name)
+        </dd>
+
+        <dt>
+            Designation
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.role_name)
+        </dd>
+
+        <dt>
+            Salary
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            Joining Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joining_date)
+        </dd>
+
+        <dt>
+            Account No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account_no)
+        </dd>
+
+        <dt>
+            Bank
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bank.bank_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditEmployee", new { id = Model.employee_id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Go back", "Index", null, new { @class = "btn btn-default" })
+</p>

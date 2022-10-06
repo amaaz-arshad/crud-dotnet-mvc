@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EmployeeCRUD.Models.Role>
+
+<h3>Designations</h3>
+<br />
+
+<p>
+    @Html.ActionLink("Add new role", "AddRole", null,new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-hover">
+    <tr>
+        <th>
+           Designation
+        </th>
+        <th>
+            Department
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.role_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.dept_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditRole", new { id=item.role_id }, new { @class = "btn btn-primary btn-sm" }) 
+            @Html.ActionLink("Details", "RoleDetails", new { id=item.role_id }, new { @class = "btn btn-success btn-sm" }) 
+            @Html.ActionLink("Delete", "DeleteRole", new { id=item.role_id }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

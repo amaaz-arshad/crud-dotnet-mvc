@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EmployeeCRUD.Models.Bank>
+
+<h3>List of Banks</h3>
+<br />
+
+<p>
+    @Html.ActionLink("Add new Bank", "AddBank", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            Bank Name
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bank_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditBank", new { id=item.bank_id }, new { @class = "btn btn-primary btn-sm" }) 
+            @Html.ActionLink("Details", "BankDetails", new { id=item.bank_id }, new { @class = "btn btn-success btn-sm" }) 
+            @Html.ActionLink("Delete", "DeleteBank", new { id=item.bank_id }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

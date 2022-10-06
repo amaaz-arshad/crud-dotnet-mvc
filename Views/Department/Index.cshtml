@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EmployeeCRUD.Models.Department>
+
+<h3>Department List</h3>
+<br />
+
+<p>
+    @Html.ActionLink("Add new Department", "AddDepartment", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+           Department
+        </th>
+        <th>
+            Dept Manager
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dept_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.employee_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditDepartment", new { id=item.dept_id }, new { @class = "btn btn-primary btn-sm" }) 
+            @Html.ActionLink("Details", "DepartmentDetails", new { id=item.dept_id }, new { @class = "btn btn-success btn-sm" }) 
+            @Html.ActionLink("Delete", "DeleteDepartment", new { id=item.dept_id }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

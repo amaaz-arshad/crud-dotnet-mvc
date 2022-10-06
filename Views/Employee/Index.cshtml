@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EmployeeCRUD.Models.Employee>
+
+<h3>Employees List</h3>
+<br />
+
+<p>
+    @Html.ActionLink("Add New Employee", "AddEmployee", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Employee Name
+        </th>
+        <th>
+            Designation
+        </th>
+        <th>
+            Salary
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Joining Date
+        </th>
+        <th>
+            Account No
+        </th>
+        <th>
+            Bank Name
+        </th>
+        <th>
+        Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role.role_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @*@{
+                string date = item.joining_date.Date.ToShortDateString();
+            }*@
+            @Html.DisplayFor(modelItem => item.joining_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.account_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bank.bank_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditEmployee", new { id = item.employee_id }, new { @class = "btn btn-primary btn-sm" })
+            @Html.ActionLink("Details", "EmployeeDetails", new { id = item.employee_id }, new { @class = "btn btn-success btn-sm" })
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.employee_id }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

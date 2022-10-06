@@ -1,0 +1,25 @@
+﻿@model EmployeeCRUD.Models.Bank
+
+<h3>Confirm delete?</h3>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Bank Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Go back", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
